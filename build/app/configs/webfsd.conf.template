@@ -28,7 +28,7 @@ web_index=""
 web_dircache=""
 
 # access log (common log format, default: none)
-web_accesslog="/opt/transfer/logs/webfsd.log"
+web_accesslog=""
 
 # use bufferred logging (default: true)
 web_logbuffering="true"

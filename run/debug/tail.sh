@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 source "$(dirname "$(dirname "$(realpath $0)")")"/config.txt
-
-docker exec "$HOSTNAME" dhcp-lease-list
+set -x
+docker exec -it "$HOSTNAME" bash -c '/opt/"$APPNAME"/scripts/tail.sh'

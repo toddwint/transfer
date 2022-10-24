@@ -13,12 +13,12 @@ GitHub: <https://github.com/toddwint/transfer>
 
 - Ubuntu base image
 - Plus:
-  - ftp
-  - isc-dhcp-server
   - rsyslog
-  - tftp
-  - tftpd-hpa
+  - isc-dhcp-server
+  - ftp
   - vsftpd
+  - tftp-hpa
+  - tftpd-hpa
   - webfs
   - tmux
   - python3-minimal
@@ -78,7 +78,7 @@ HTTPPORT3=8082
 HTTPPORT4=8083
 
 # The hostname of the instance of the docker container
-HOSTNAME=transfersrvr01
+HOSTNAME=transfer01
 ```
 
 
@@ -105,17 +105,19 @@ sudo ip route add "$IPADDR"/32 dev "$HOSTNAME"
 # Create the docker container
 docker run -dit \
     --name "$HOSTNAME" \
-    --net="$HOSTNAME" \
+    --network "$HOSTNAME" \
     --ip $IPADDR \
     -h "$HOSTNAME" \
     ` # Volume can be changed to another folder. For Example: ` \
-    ` # -v /home/"$USER"/Desktop/captures:/opt/"$APPNAME"/scripts/captures \ ` \
+    ` # -v /home/"$USER"/Desktop/public:/opt/"$APPNAME"/public \ ` \
     -v "$(dirname "$(realpath $0)")"/public:/opt/"$APPNAME"/public \
     -p "$IPADDR":"$HTTPPORT1":"$HTTPPORT1" \
     -p "$IPADDR":"$HTTPPORT2":"$HTTPPORT2" \
     -p "$IPADDR":"$HTTPPORT3":"$HTTPPORT3" \
     -p "$IPADDR":"$HTTPPORT4":"$HTTPPORT4" \
     -e TZ="$TZ" \
+    -e MGMTIP="$MGMTIP" \
+    -e GATEWAY="$GATEWAY" \
     -e HUID="$HUID" \
     -e HGID="$HGID" \
     -e ENABLE_DHCP="$ENABLE_DHCP" \

@@ -1,5 +1,8 @@
 # Launch page for webadmin
 
+## webfs webadmin page
+<http://IPADDR:80>
+
 ## ttyd webadmin page
 <http://IPADDR:HTTPPORT1>
 

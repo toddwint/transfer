@@ -1,5 +1,5 @@
 FROM toddwint/mybaseimage
-COPY scripts /opt/transfer/scripts
+COPY app /opt/transfer
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=UTC \
     HTTPPORT1=8080 \
@@ -17,13 +17,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN apt-get update \
     && \
     apt-get install -y \
-    ftp \
-    isc-dhcp-server \
-    webfs \
     rsyslog \
-    tftp \
-    tftpd-hpa \
+    isc-dhcp-server \
+    ftp \
     vsftpd \
+    tftp-hpa \
+    tftpd-hpa \
+    webfs \
     && \
     echo $HOSTNAME > /etc/hostname \
     && \
@@ -34,5 +34,5 @@ RUN apt-get update \
     apt-get autoremove -y \
     && \
     rm -rf /var/lib/apt/lists/*
-WORKDIR /opt/transfer/scripts
+WORKDIR /opt/transfer/debug
 CMD ["/opt/transfer/scripts/startup.sh"]

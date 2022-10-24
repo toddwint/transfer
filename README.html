@@ -163,12 +163,12 @@
 <li>Ubuntu base image</li>
 <li>Plus:
 <ul>
-<li>ftp</li>
-<li>isc-dhcp-server</li>
 <li>rsyslog</li>
-<li>tftp</li>
-<li>tftpd-hpa</li>
+<li>isc-dhcp-server</li>
+<li>ftp</li>
 <li>vsftpd</li>
+<li>tftp-hpa</li>
+<li>tftpd-hpa</li>
 <li>webfs</li>
 <li>tmux</li>
 <li>python3-minimal</li>
@@ -232,7 +232,7 @@ HTTPPORT3=8082
 HTTPPORT4=8083
 
 # The hostname of the instance of the docker container
-HOSTNAME=transfersrvr01</code></pre>
+HOSTNAME=transfer01</code></pre>
 <h2 id="sample-docker-run-script">Sample docker run script</h2>
 <pre><code>#!/usr/bin/env bash
 REPO=toddwint
@@ -254,17 +254,19 @@ sudo ip route add &quot;$IPADDR&quot;/32 dev &quot;$HOSTNAME&quot;
 # Create the docker container
 docker run -dit \
     --name &quot;$HOSTNAME&quot; \
-    --net=&quot;$HOSTNAME&quot; \
+    --network &quot;$HOSTNAME&quot; \
     --ip $IPADDR \
     -h &quot;$HOSTNAME&quot; \
     ` # Volume can be changed to another folder. For Example: ` \
-    ` # -v /home/&quot;$USER&quot;/Desktop/captures:/opt/&quot;$APPNAME&quot;/scripts/captures \ ` \
+    ` # -v /home/&quot;$USER&quot;/Desktop/public:/opt/&quot;$APPNAME&quot;/public \ ` \
     -v &quot;$(dirname &quot;$(realpath $0)&quot;)&quot;/public:/opt/&quot;$APPNAME&quot;/public \
     -p &quot;$IPADDR&quot;:&quot;$HTTPPORT1&quot;:&quot;$HTTPPORT1&quot; \
     -p &quot;$IPADDR&quot;:&quot;$HTTPPORT2&quot;:&quot;$HTTPPORT2&quot; \
     -p &quot;$IPADDR&quot;:&quot;$HTTPPORT3&quot;:&quot;$HTTPPORT3&quot; \
     -p &quot;$IPADDR&quot;:&quot;$HTTPPORT4&quot;:&quot;$HTTPPORT4&quot; \
     -e TZ=&quot;$TZ&quot; \
+    -e MGMTIP=&quot;$MGMTIP&quot; \
+    -e GATEWAY=&quot;$GATEWAY&quot; \
     -e HUID=&quot;$HUID&quot; \
     -e HGID=&quot;$HGID&quot; \
     -e ENABLE_DHCP=&quot;$ENABLE_DHCP&quot; \
