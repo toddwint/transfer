@@ -27,10 +27,6 @@ RUN apt-get update \
     && \
     echo $HOSTNAME > /etc/hostname \
     && \
-    cd /opt \
-    && \
-    rm -rf /opt/mybaseimage \
-    && \
     apt-get autoremove -y \
     && \
     rm -rf /var/lib/apt/lists/*
