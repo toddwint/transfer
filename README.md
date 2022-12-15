@@ -90,7 +90,8 @@ REPO=toddwint
 APPNAME=transfer
 HUID=$(id -u)
 HGID=$(id -g)
-source "$(dirname "$(realpath $0)")"/config.txt
+SCRIPTDIR="$(dirname "$(realpath "$0")")"
+source "$SCRIPTDIR"/config.txt
 
 # Make the macvlan needed to listen on ports
 # Set the IP on the host and add a route to the container
@@ -110,7 +111,7 @@ docker run -dit \
     -h "$HOSTNAME" \
     ` # Volume can be changed to another folder. For Example: ` \
     ` # -v /home/"$USER"/Desktop/public:/opt/"$APPNAME"/public \ ` \
-    -v "$(dirname "$(realpath $0)")"/public:/opt/"$APPNAME"/public \
+    -v "$SCRIPTDIR"/public:/opt/"$APPNAME"/public \
     -p "$IPADDR":"$HTTPPORT1":"$HTTPPORT1" \
     -p "$IPADDR":"$HTTPPORT2":"$HTTPPORT2" \
     -p "$IPADDR":"$HTTPPORT3":"$HTTPPORT3" \
