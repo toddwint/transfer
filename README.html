@@ -158,6 +158,17 @@
 <p><code>transfer</code> docker image for simple lab testing applications.</p>
 <p>Docker Hub: <a href="https://hub.docker.com/r/toddwint/transfer" class="uri">https://hub.docker.com/r/toddwint/transfer</a></p>
 <p>GitHub: <a href="https://github.com/toddwint/transfer" class="uri">https://github.com/toddwint/transfer</a></p>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>DHCP, FTP, TFTP, and HTTP server and each can be disabled as needed in the configuration file.</li>
+<li>Download the docker image and github files.</li>
+<li>Configure the settings in <code>run/config.txt</code>.</li>
+<li>Start a new container by running <code>run/create_container.sh</code>. The folder <code>public</code> will be created as specified in the <code>create_container.sh</code> script.</li>
+<li>Transfer files to the <code>public</code> folder.</li>
+<li>Devices will receive an IP via DHCP.</li>
+<li>Devices can download any files in the <code>public</code> folder via FTP, TFTP, or HTTP.</li>
+<li>Open the file webadmin.html to view DHCP/FTP/TFTP messages in a web browser.</li>
+</ul>
 <h2 id="features">Features</h2>
 <ul>
 <li>Ubuntu base image</li>

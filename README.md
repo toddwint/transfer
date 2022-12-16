@@ -9,6 +9,18 @@ Docker Hub: <https://hub.docker.com/r/toddwint/transfer>
 GitHub: <https://github.com/toddwint/transfer>
 
 
+## Overview
+
+- DHCP, FTP, TFTP, and HTTP server and each can be disabled as needed in the configuration file.
+- Download the docker image and github files.
+- Configure the settings in `run/config.txt`.
+- Start a new container by running `run/create_container.sh`. The folder `public` will be created as specified in the `create_container.sh` script.
+- Transfer files to the `public` folder.
+- Devices will receive an IP via DHCP.
+- Devices can download any files in the `public` folder via FTP, TFTP, or HTTP.
+- Open the file webadmin.html to view DHCP/FTP/TFTP messages in a web browser.
+
+
 ## Features
 
 - Ubuntu base image
