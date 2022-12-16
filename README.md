@@ -11,10 +11,12 @@ GitHub: <https://github.com/toddwint/transfer>
 
 ## Overview
 
-- DHCP, FTP, TFTP, and HTTP server and each can be disabled as needed in the configuration file.
+- DHCP, FTP, TFTP, and HTTP server. 
+  - Each service can be disabled via the configuration file.
 - Download the docker image and github files.
 - Configure the settings in `run/config.txt`.
-- Start a new container by running `run/create_container.sh`. The folder `public` will be created as specified in the `create_container.sh` script.
+- Start a new container by running `run/create_container.sh`. 
+  - The folder `public` will be created as specified in the `create_container.sh` script.
 - Transfer files to the `public` folder.
 - Devices will receive an IP via DHCP.
 - Devices can download any files in the `public` folder via FTP, TFTP, or HTTP.
@@ -67,7 +69,7 @@ IPADDR=192.168.10.1
 # The first 2 and last 2 IPs in the subnet are available for use.
 MGMTIP=192.168.10.253
 
-# The IP subnet in the form subnet/cidr
+# The IP subnet in the form NETWORK/PREFIX
 SUBNET=192.168.10.0/24
 
 # The IP of the gateway. 

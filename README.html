@@ -160,10 +160,16 @@
 <p>GitHub: <a href="https://github.com/toddwint/transfer" class="uri">https://github.com/toddwint/transfer</a></p>
 <h2 id="overview">Overview</h2>
 <ul>
-<li>DHCP, FTP, TFTP, and HTTP server and each can be disabled as needed in the configuration file.</li>
+<li>DHCP, FTP, TFTP, and HTTP server.
+<ul>
+<li>Each service can be disabled via the configuration file.</li>
+</ul></li>
 <li>Download the docker image and github files.</li>
 <li>Configure the settings in <code>run/config.txt</code>.</li>
-<li>Start a new container by running <code>run/create_container.sh</code>. The folder <code>public</code> will be created as specified in the <code>create_container.sh</code> script.</li>
+<li>Start a new container by running <code>run/create_container.sh</code>.
+<ul>
+<li>The folder <code>public</code> will be created as specified in the <code>create_container.sh</code> script.</li>
+</ul></li>
 <li>Transfer files to the <code>public</code> folder.</li>
 <li>Devices will receive an IP via DHCP.</li>
 <li>Devices can download any files in the <code>public</code> folder via FTP, TFTP, or HTTP.</li>
@@ -220,7 +226,7 @@ IPADDR=192.168.10.1
 # The first 2 and last 2 IPs in the subnet are available for use.
 MGMTIP=192.168.10.253
 
-# The IP subnet in the form subnet/cidr
+# The IP subnet in the form NETWORK/PREFIX
 SUBNET=192.168.10.0/24
 
 # The IP of the gateway. 

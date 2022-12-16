@@ -12,7 +12,7 @@ IPADDR=192.168.10.1
 # The first 2 and last 2 IPs in the subnet are available for use.
 MGMTIP=192.168.10.253
 
-# The IP subnet in the form subnet/cidr
+# The IP subnet in the form NETWORK/PREFIX
 SUBNET=192.168.10.0/24
 
 # The IP of the gateway. 
