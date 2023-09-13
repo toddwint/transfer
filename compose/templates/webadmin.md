@@ -1,4 +1,4 @@
-# Launch page for webadmin
+# Launch page for webadmin - HOSTNAME
 
 ## webfs webadmin page
 <http://IPADDR:80>
