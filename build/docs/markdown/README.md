@@ -155,7 +155,7 @@ services:
         - HTTPPORT3=8082
         - HTTPPORT4=8083
     volumes:
-      - "${PWD}/public:/opt/transfer/ftp"
+      - "${PWD}/public:/opt/transfer/public"
     tty: true
 
 networks:

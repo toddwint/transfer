@@ -32,7 +32,7 @@ services:
     #cap_add:
     #  - NET_ADMIN
     volumes:
-      - "${PWD}/public:/opt/transfer/ftp"
+      - "${PWD}/public:/opt/transfer/public"
     tty: true
 
 networks:
