@@ -1,0 +1,114 @@
+[
+ [
+  "Launch tmux",
+  "/opt/transfer/scripts/tmux.sh"
+ ],
+ [
+  "Search logs",
+  [
+   [
+    "transfer log (syslog)",
+    "tail -F -n +1 /opt/transfer/logs/transfer.log | fzf --tac --no-sort"
+   ],
+   [
+    "ftp transfers",
+    "tail -F -n +1 /opt/transfer/logs/vsftpd_xfers.log | fzf --reverse --no-sort"
+   ],
+   [
+    "tftp transfers",
+    "tail -F -n +1 /opt/transfer/logs/transfer.log | fzf --reverse --no-sort --query='in.tftpd '"
+   ]
+  ]
+ ],
+ [
+  "View logs",
+  [
+   [
+    "transfer log (syslog)",
+    "more /opt/transfer/logs/transfer.log"
+   ],
+   [
+    "ftp transfers",
+    "more /opt/transfer/logs/vsftpd_xfers.log"
+   ],
+   [
+    "tftp transfers",
+    "grep 'in.tftpd' /opt/transfer/logs/transfer.log | more"
+   ]
+  ]
+ ],
+ [
+  "View configuration",
+  [
+   [
+    "dhcpd",
+    "more /etc/dhcp/dhcpd.conf"
+   ],
+   [
+    "webfsd",
+    "more /etc/webfsd.conf"
+   ],
+   [
+    "tftpd-hpa",
+    "more /etc/default/tftpd-hpa"
+   ],
+   [
+    "vsftpd",
+    "more /etc/vsftpd.conf"
+   ],
+   [
+    "IP addresses",
+    "ip addr show | more"
+   ],
+   [
+    "Routing table",
+    "ip route show | more"
+   ],
+   [
+    "ARP or NDISC cache",
+    "ip neighbor show | more"
+   ],
+   [
+    "Network devices",
+    "ip link show | more"
+   ]
+  ]
+ ],
+ [
+  "Debug scripts",
+  [
+   [
+    "Other dhcp leases",
+    "dhcp-lease-list"
+   ],
+   [
+    "Show transfer services",
+    "/opt/transfer/debug/services_status.sh"
+   ],
+   [
+    "Show processes",
+    "ps ax | more"
+   ],
+   [
+    "Show sockets",
+    "ss --all --numeric --processes | more"
+   ],
+   [
+    "ttyd1 log",
+    "more /opt/transfer/logs/ttyd1.log"
+   ],
+   [
+    "ttyd2 log",
+    "more /opt/transfer/logs/ttyd2.log"
+   ],
+   [
+    "frontail log",
+    "more /opt/transfer/logs/frontail.log"
+   ],
+   [
+    "tailon log",
+    "more /opt/transfer/logs/tailon.log"
+   ]
+  ]
+ ]
+]
