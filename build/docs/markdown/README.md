@@ -27,6 +27,8 @@ Create and run the container using `docker run` commands, `docker compose` comma
 
 Manage the container using a web browser. Navigate to the IP address of the container and one of the `HTTPPORT`s.
 
+Upload files to the container via FTP. Username and password are transfer / transfer [APPNAME / APPNAME].
+
 **NOTE: Network interface must be UP i.e. a cable plugged in.**
 
 Example `docker run` and `docker compose` commands as well as sample commands to create the macvlan are below.
