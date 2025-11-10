@@ -2,7 +2,7 @@ name: ${HOSTNAME}
 
 services:
   transfer:
-    image: toddwint/transfer
+    image: toddwint/${APPNAME}
     hostname: ${HOSTNAME}
     ports:
         - "${IPADDR}:80:80"
